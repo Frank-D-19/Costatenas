@@ -1,0 +1,96 @@
+<!-- Menú -->
+<app-geoportal-header></app-geoportal-header>
+
+<div class="form" >
+  <mat-card >
+    <mat-card-header>
+      <mat-card-title *ngIf="modo=='crear'">Nueva Zona</mat-card-title>
+      <mat-card-title *ngIf="modo!='crear'">Editar Zona</mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="form" (submit)="onSaveZona()">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="nombre"
+          placeholder="Nombre de la nueva zona *">
+      </mat-form-field>
+      <div *ngIf="form.controls.nombre.errors && (form.controls.nombre.dirty || form.controls.nombre.touched || isSubmited)">
+        <mat-error *ngIf="form.controls.nombre.errors.required">Debe ingresar el nombre de la zona</mat-error>
+        <mat-error *ngIf="form.controls.nombre.errors.minlength">El nombre debe tener 5 letras como mínimo</mat-error>
+      </div>
+
+      <mat-form-field class="seleccionar-indicador floating-box">
+        <mat-select
+          id="select"
+          matInput
+          type="text"
+          formControlName="indicadores"
+          placeholder="Indicadores que se van a estudiar *">
+            <mat-option *ngFor="let indicador of indicadores" [value]= "indicador" (click)="verIndicador()" >
+              {{indicador.nombre}}
+            </mat-option>
+        </mat-select>      
+      </mat-form-field> 
+
+      <form class="floating-box">
+        <button matTooltip="Nuevo Indicador" mat-button color="primary" (click)="showIndicadorForm()">
+            <i class="fa fa-plus" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>
+        </button>
+      </form>
+      
+      <div class="parametros floating-box" *ngIf="indicadorAux!=null">
+        <p>Seleccione los parametros del indicador "{{indicadorAux.nombre}}" que se van a estudiar en la nueva zona:</p>
+
+        <mat-list>
+          <mat-list-item *ngFor="let p of pAux">{{p.nombre}}
+            <!-- Cambiar los botones de agragar y quitar por iconos -->
+            <button matTooltip="Agregar" mat-button color="accent" *ngIf="!estaAgregar(p)" (click)="agregarParametro(p)">
+                <i class="fa fa-check" style="margin-top:-4px; width: 21px; height: 21px"></i>
+            </button>
+            <button matTooltip="Quitar" mat-button color="warn" *ngIf="estaAgregar(p)" (click)="quitarParametro(p)">
+                <i class="fa fa-minus" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <div class="floating-box parametrosSeleccionados" *ngIf="parametrosAgregar.length>0">
+        <p>Parámetros seleccionados con sus respectivos indicadores</p>
+        <table>
+          <tr>
+            <th>Indicador</th>
+            <th>Parámetros</th>
+          </tr>
+          <tr *ngFor="let par of parametrosAgregar">
+            <td>{{par.indicador.nombre}}</td>
+            <td>{{par.nombre}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div *ngIf="(parametrosAgregar.length <= 0 || form.controls.indicadores.errors) && (form.controls.indicadores.dirty || form.controls.indicadores.touched || isSubmited)">
+        <mat-error *ngIf="form.controls.indicadores.errors && form.controls.indicadores.errors.required">Debe seleccionar un indicador</mat-error>
+        <mat-error *ngIf="(form.controls.indicadores.errors==null && parametrosAgregar.length <= 0) && isSubmited">Debe seleccionar al menos un parámetro </mat-error>
+      </div>
+
+      <!-- <p class="map-label floating-box" >Contorno de la zona</p>
+
+      <form class="floating-box">
+        <button mat-stroked-button (click)="filePicker.click()">Importar shape</button>
+        <input type="file" #filePicker (change)="onFilePicked($event)" accept=".shp">
+      </form> -->
+
+      <div id="mapForm"></div>
+      <mat-error class="map-error" *ngIf="getGeometry()==undefined && isSubmited">Debe dibujar la zona en el mapa</mat-error>
+
+      <button class="zona_button" type="submit" mat-raised-button color="primary" *ngIf="modo=='crear'">
+        <i class="fa fa-save" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>Guardar
+      </button>
+      <button class="zona_button" type="submit" mat-raised-button color="primary" *ngIf="modo=='editar'">
+        <i class="fa fa-save" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>Actualizar
+      </button>
+    </form>
+  </mat-card>
+</div>

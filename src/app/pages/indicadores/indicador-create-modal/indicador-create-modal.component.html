@@ -1,0 +1,94 @@
+<button id="close" color="primary" mat-icon-button aria-label="Close icon" (click)="closeDialog()">
+  <mat-icon  svgIcon="close"></mat-icon>
+</button>
+<br>
+<h1 mat-dialog-title>Nuevo Indicador</h1>
+<hr>
+<div mat-dialog-content>
+  <form [formGroup]="form" (submit)="onSaveIndicador()">
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName="nombre"
+        placeholder="Nombre *">
+    </mat-form-field>
+    <div *ngIf="form.controls.nombre.errors && (form.controls.nombre.dirty || form.controls.nombre.touched || isSubmited)">
+      <mat-error class="font" *ngIf="form.controls.nombre.errors.required">Por favor ingrese un nombre para el nuevo indicador</mat-error>
+      <mat-error class="font" *ngIf="form.controls.nombre.errors.minlength">El nombre debe tener 5 letras como mínimo</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName="definicion"
+        placeholder="Definicion del Indicador *">
+    </mat-form-field>
+    <div *ngIf="form.controls.definicion.errors && (form.controls.definicion.dirty || form.controls.definicion.touched || isSubmited)">
+      <mat-error class="font" *ngIf="form.controls.definicion.errors.required">Por favor ingrese la definición para el nuevo indicador</mat-error>
+      <mat-error class="font" *ngIf="form.controls.definicion.errors.minlength">La definición del nuevo indicador debe tener 5 letras como mínimo</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName="importancia"
+        placeholder="Importancia *">
+    </mat-form-field>
+    <div *ngIf="form.controls.importancia.errors && (form.controls.importancia.dirty || form.controls.importancia.touched || isSubmited)">
+      <mat-error class="font" *ngIf="form.controls.importancia.errors.required">Por favor ingrese la importancia para el nuevo indicador</mat-error>
+      <mat-error class="font" *ngIf="form.controls.importancia.errors.minlength">La importancia del nuevo indicador debe tener 5 letras como mínimo</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName="fuente"
+        placeholder="Fuente *">
+    </mat-form-field>
+    <div *ngIf="form.controls.fuente.errors && (form.controls.fuente.dirty || form.controls.fuente.touched || isSubmited)">
+      <mat-error class="font" *ngIf="form.controls.fuente.errors.required">Por favor ingrese la fuente para el nuevo indicador</mat-error>
+      <mat-error class="font" *ngIf="form.controls.fuente.errors.minlength">La fuente del nuevo indicador debe tener 5 letras como mínimo</mat-error>
+    </div>
+
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName="colaboracion"
+        placeholder="Colaboración *">
+    </mat-form-field>
+    <div *ngIf="form.controls.colaboracion.errors && (form.controls.colaboracion.dirty || form.controls.colaboracion.touched || isSubmited)">
+      <mat-error class="font" *ngIf="form.controls.colaboracion.errors.required">Por favor ingrese la colaboración para el nuevo indicador</mat-error>
+      <mat-error class="font" *ngIf="form.controls.colaboracion.errors.minlength">La colaboración del nuevo indicador debe tener 5 letras como mínimo</mat-error>
+    </div>
+
+    <mat-form-field class="floating-box">
+      <mat-select
+        formControlName="parametros"
+        multiple
+        placeholder="Parametros *">
+        <mat-option *ngFor="let parametro of parametros" [value]="parametro">
+          {{parametro.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <form  class="floating-box">
+      <button matTooltip="Nuevo Parámetro" mat-button color="primary" (click)="showParametroForm()">
+          <i class="fa fa-plus" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>
+      </button>
+    </form>
+
+    <div *ngIf="form.controls.parametros.errors && (form.controls.parametros.dirty || form.controls.parametros.touched || isSubmited)">
+      <mat-error class="font" *ngIf="form.controls.parametros.errors.required">Por favor seleccione un parametro como mínimo</mat-error>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">
+        <i class="fa fa-save" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>Guardar
+    </button>
+  </form>
+</div>

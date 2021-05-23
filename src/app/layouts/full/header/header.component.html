@@ -1,0 +1,12 @@
+        
+<!-- ============================================================== -->
+<!-- Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+<button [matMenuTriggerFor]="profile" matTooltip="Menú del usuario." mat-button class="m-r-5"><i class="fa fa-user-circle" style="width: 25px; height: 25px;margin-right:8px"></i> {{usuario}} </button>
+<mat-menu #profile="matMenu" matTooltip="Ocultar menú de navegación." class="mymegamenu">
+    <button mat-menu-item [routerLink]="['/admin']"><i class="fa fa-cog" style="margin-right: 9px"></i>Configuración </button>
+    <button mat-menu-item><i class="fa fa-user" style="margin-right: 9px"></i> Perfil </button>
+    <button mat-menu-item><i class="fa fa-bell" style="margin-right: 9px"></i>Notificaciones </button>
+    <button mat-menu-item [routerLink]="['']"><i class="fa fa-sign-out-alt" style="margin-right: 9px"></i>Salir </button>
+</mat-menu>
+

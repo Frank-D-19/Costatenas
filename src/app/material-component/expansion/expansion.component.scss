@@ -1,0 +1,15 @@
+@import 'src/assets/styles/variable.scss';
+@import 'src/assets/styles/responsive.scss';
+@import 'src/assets/styles/app.scss';
+@import 'src/assets/styles/spinner.scss';
+@import 'src/assets/styles/style.scss';
+
+.example-headers-align .mat-expansion-panel-header-title, 
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}

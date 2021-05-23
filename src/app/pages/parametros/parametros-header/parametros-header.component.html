@@ -1,0 +1,15 @@
+<mat-toolbar >
+
+
+  <button mat-button [routerLink]="['/indicadores']" routerLinkActive="router-link-active"><i class="fa fa-list" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Listar Indicadores</button>
+  <button mat-button [routerLink]="['/indicadores/crear']" routerLinkActive="router-link-active"><i class="fa fa-plus-circle" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Adicionar Indicador</button>
+
+
+  <button mat-button [matMenuTriggerFor]="parametros"><i class="fa fa-chart-bar" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Parámetros</button>
+  <mat-menu #parametros="matMenu">
+    <button mat-menu-item [routerLink]="['/parametros']" routerLinkActive="router-link-active">Listar Parametros</button>
+    <button mat-menu-item [routerLink]="['/parametros/crear']" routerLinkActive="router-link-active">Adicionar Parametro</button>
+  </mat-menu>
+
+</mat-toolbar>
+

@@ -1,0 +1,73 @@
+<!--------------------------------------------Formularios------------------------------------------------------------------------------
+<form [formGroup]="formulario" (sumbit)="onSumbit(formulario)" class="modale" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <a  class="btn-close" aria-hidden="true" (click)="close()">&times;</a>
+              </div>
+                <div style="width: 95%; margin-left: 20px;">
+                    <mat-form-field style="width: 49%; float: left; position: inherit; margin-right: 10px; ">
+                            <input formControlName="denominacion" matInput  placeholder="Denominación">
+                    </mat-form-field>
+                     <mat-form-field style="width: 49%; float: left; position: inherit;">
+                            <input formControlName="medicion"  matInput  placeholder="Jefe del Proyecto">
+                   </mat-form-field>
+            </div> 
+            <div style="width: 95%; margin-left: 20px;">
+              <mat-form-field >
+                      <textarea formControlName="descripcion" matInput placeholder="Descripción"></textarea>
+              </mat-form-field>
+               <mat-form-field>
+                      <textarea matInput placeholder="Objetivos"></textarea>
+             </mat-form-field>
+           </div>
+            <button type="submit" mat-raised-button (click)="onSumbit()" matTooltip="Guardar Indicador." color="primary" style="margin-right: 10px;">Aceptar</button>
+            <button mat-raised-button matTooltip="Cancelar." color="warn">Cancelar</button>   
+</div>
+</form>
+----------------------------------------------------------------------------------------------------------------------------->
+<div fxLayout="row" fxLayoutWrap="wrap" style="height:550px">
+<!-- column -->    
+<div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" >
+<mat-card>
+    <mat-card-content style="height:525px">
+        <div style="width: 100%;height:50px;">
+        <h3>Listado de Usuarios</h3>
+        <button mat-button (click)="open()" matTooltip="Adicionar Usuario." color="primary" id="adduser"><i class="fa fa-user-plus" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Adicionar</button>
+        </div>
+        <div  style="width: 90%;position: absolute">
+        <mat-form-field style="width:20%; "><input  matInput placeholder="Nombre"></mat-form-field>
+         <mat-form-field  class="" style="width: 20%;margin-left: 20px">
+          <mat-select
+          matInput
+          type="text"
+          placeholder="Rol">
+            <mat-option  [value]= "idrol"  >
+              
+            </mat-option>
+        </mat-select>   
+       </mat-form-field>
+       <button mat-button (click)="open()" matTooltip="Buscar Usuario." color="primary" id="filtrar"><i class="fa fa-search" style="margin-top:-4px;margin-right: 8px; width: 20px; height: 20px"></i></button>
+        </div>
+           <table>
+             <tr id="cabecera" > 
+               <th>Nombre</th>
+               <th>Rol</th>
+               <th>Correo</th>
+               <th>Acciones</th>
+             </tr>
+             <tr *ngFor="let user of users" style="font-size: 15px;color:gray">
+              <th>{{user.name}}</th>
+              <th>{{user.idrol}}</th>
+              <th>{{user.email}}</th>
+              <th>
+                  <button mat-icon-button  matTooltip="Editar Usuario." color="primary" ><i class="fa fa-edit" ></i></button>
+                  <button mat-icon-button  matTooltip="Eliminar Usuario." color="warn"><i class="fa fa-trash"></i></button>
+              </th>
+            </tr>
+           </table>
+        </mat-card-content>
+</mat-card>
+</div>
+</div>
+<!-- column -->     
+

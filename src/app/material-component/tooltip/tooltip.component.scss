@@ -1,0 +1,15 @@
+@import 'src/assets/styles/variable.scss';
+@import 'src/assets/styles/responsive.scss';
+@import 'src/assets/styles/app.scss';
+@import 'src/assets/styles/spinner.scss';
+@import 'src/assets/styles/style.scss';
+
+.example-tooltip-host {
+  display: inline-flex;
+  align-items: center;
+  margin: 50px;
+}
+
+.example-select {
+  margin: 0 10px;
+}

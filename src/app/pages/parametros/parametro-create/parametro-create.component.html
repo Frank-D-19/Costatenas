@@ -1,0 +1,54 @@
+<app-indicadores-header></app-indicadores-header>
+<div class="container-fluid" >
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title *ngIf="modo=='crear'"></mat-card-title>
+      <mat-card-title *ngIf="modo=='editar'"></mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="form" (submit)="onSaveParametro()">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="nombre"
+          placeholder="Nombre del Parametro">
+        <mat-error *ngIf="form.get('nombre').invalid">Por favor ingrese correctamente un nombre para el nuevo parametro</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="floating-box">
+        <mat-select
+          formControlName="unidad_medida"
+          placeholder="Unidad de medida *">
+          <mat-option *ngFor="let unidad_medida of unidades_medida" [value]="unidad_medida">
+            {{unidad_medida.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!--<form  class="floating-box">
+        <button mat-button color="primary" (click)="showUnidadMedidaForm()">Nueva Unidad de medida</button>
+      </form>-->
+
+      <!--<mat-form-field>
+        <mat-select
+          formControlName="indicadores"
+          multiple
+          placeholder="Indicadores *">
+          <mat-option *ngFor="let indicador of indicadores" [value]="indicador">
+            {{indicador.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>-->
+
+      <div *ngIf="form.controls.unidad_medida.errors && (form.controls.unidad_medida.dirty || form.controls.unidad_medida.touched || isSubmited)">
+        <mat-error class="font" *ngIf="form.controls.unidad_medida.errors.required">Por favor seleccione una unidad de medida</mat-error>
+      </div>
+
+      <div></div>
+
+      <button mat-raised-button color="primary" type="submit" >Guardar Parametro</button>
+    </form>
+  </mat-card>
+</div>-

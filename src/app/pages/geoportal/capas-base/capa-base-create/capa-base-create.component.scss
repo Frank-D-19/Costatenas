@@ -1,0 +1,46 @@
+:host{
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  width: 95%;
+}
+
+.container-fluid {
+  height: 83vh;
+  width: 100%;
+}
+
+// #mapaBase{
+//   width: 90%;
+//   border-radius:5px;
+//   height: 350px;
+//   margin-left: 5%;
+// }
+
+mat-form-field{
+  width: 80%;
+  margin-left: 5%;
+}
+
+.form{
+  width: 100%;
+}
+
+mat-error{
+  margin-top: -10px;
+  margin-left: 5%;  
+  margin-bottom: 2%;
+}
+
+
+.button{
+  margin: 20px;
+}
+
+.floating-box{
+  display: inline-block;
+}
+
+.seleccionar-shape{
+  width: 50%;
+}

@@ -1,0 +1,332 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20210512.192729.12092.0.001.json",
+    "dumpEventTime": "2021-05-12T19:27:29Z",
+    "dumpEventTimeStamp": "1620872849436",
+    "processId": 12092,
+    "cwd": "E:\\Escuela\\_______TESIS\\tesis App\\tesis App\\costatenas_frontend",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Program Files\\JetBrains\\WebStorm 2020.3.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\js-language-service.js",
+      "-id=1620872561787",
+      "-debug-name=typescript"
+    ],
+    "nodejsVersion": "v12.15.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.15.0",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.15.0/node-v12.15.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.15.0/node-v12.15.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.15.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.17763",
+    "osVersion": "Windows 10 Home",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i3-7020U CPU @ 2.30GHz",
+        "speed": 2304,
+        "user": 11338953,
+        "nice": 0,
+        "sys": 9021593,
+        "idle": 106274796,
+        "irq": 1963593
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-7020U CPU @ 2.30GHz",
+        "speed": 2304,
+        "user": 10211890,
+        "nice": 0,
+        "sys": 5001250,
+        "idle": 111421937,
+        "irq": 162328
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-7020U CPU @ 2.30GHz",
+        "speed": 2304,
+        "user": 13392500,
+        "nice": 0,
+        "sys": 5989671,
+        "idle": 107252890,
+        "irq": 94890
+      },
+      {
+        "model": "Intel(R) Core(TM) i3-7020U CPU @ 2.30GHz",
+        "speed": 2304,
+        "user": 11478312,
+        "nice": 0,
+        "sys": 5234281,
+        "idle": 109922437,
+        "irq": 111515
+      }
+    ],
+    "host": "LAPTOP-17DSKN5C"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff76ff11759",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76ff15b7c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff76ff14b38",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff77000446b",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff770808d9e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff7707f0de1",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff7706be6ac",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff7706c67b1",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff7706bbe13",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff7706ba5e4",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff7706db8b5",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff770447b89",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff770c34d3d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff770c35c71",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000022740f8f61b",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 392343552,
+    "totalCommittedMemory": 392343552,
+    "usedMemory": 387768776,
+    "availableMemory": 1810248344,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 1048576,
+        "committedMemory": 1048576,
+        "capacity": 1047488,
+        "used": 1047480,
+        "available": 8
+      },
+      "old_space": {
+        "memorySize": 362131456,
+        "committedMemory": 362131456,
+        "capacity": 361651440,
+        "used": 358722696,
+        "available": 2928744
+      },
+      "code_space": {
+        "memorySize": 2260992,
+        "committedMemory": 2260992,
+        "capacity": 1998784,
+        "used": 1826592,
+        "available": 172192
+      },
+      "map_space": {
+        "memorySize": 1052672,
+        "committedMemory": 1052672,
+        "capacity": 1051312,
+        "used": 652720,
+        "available": 398592
+      },
+      "large_object_space": {
+        "memorySize": 25538560,
+        "committedMemory": 25538560,
+        "capacity": 25483440,
+        "used": 25483440,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047488,
+        "used": 0,
+        "available": 1047488
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 40.281,
+    "kernelCpuSeconds": 17.781,
+    "cpuConsumptionPercent": 20.2307,
+    "maxRss": 459554816,
+    "pageFaults": {
+      "IORequired": 261741,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 4788,
+      "writes": 189
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=::": "::\\",
+    "=C:": "C:\\",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\Frank D\\AppData\\Roaming",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "LAPTOP-17DSKN5C",
+    "ComSpec": "C:\\windows\\system32\\cmd.exe",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "FSHARPINSTALLDIR": "C:\\Program Files (x86)\\Microsoft SDKs\\F#\\10.1\\Framework\\v4.0\\",
+    "GDAL_DATA": "C:\\Program Files\\PostgreSQL\\11\\gdal-data",
+    "GEOSERVER_DATA_DIR": "C:\\Program Files (x86)\\GeoServer 2.14.2\\data_dir",
+    "GEOSERVER_HOME": "C:\\Program Files (x86)\\GeoServer 2.14.2",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\Frank D",
+    "IDEA_INITIAL_DIRECTORY": "C:\\Program Files\\JetBrains\\WebStorm 2020.3.2\\bin",
+    "JAVA_HOME": "C:\\Program Files (x86)\\Java\\jdk1.8.0_172",
+    "LOCALAPPDATA": "C:\\Users\\Frank D\\AppData\\Local",
+    "LOGONSERVER": "\\\\LAPTOP-17DSKN5C",
+    "NUMBER_OF_PROCESSORS": "4",
+    "OneDrive": "C:\\Users\\Frank D\\OneDrive",
+    "OnlineServices": "Online Services",
+    "OS": "Windows_NT",
+    "Path": "C:\\ProgramData\\Oracle\\Java\\javapath;C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\laragon\\bin\\php\\php-7.4.6-Win32-vc15-x64;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Frank D\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Users\\Frank D\\AppData\\Roaming\\npm;C:\\Users\\Frank D\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Frank D\\AppData\\Local\\GitHubDesktop\\bin;E:\\Nueva carpeta\\flutter\\bin;",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
+    "platformcode": "KV",
+    "POSTGIS_ENABLE_OUTDB_RASTERS": "1",
+    "POSTGIS_GDAL_ENABLED_DRIVERS": "GTiff PNG JPEG GIF XYZ DTED USGSDEM AAIGrid",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "8e0a",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "RegionCode": "NA",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\windows",
+    "TEMP": "C:\\Users\\FRANKD~1\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\FRANKD~1\\AppData\\Local\\Temp",
+    "TS_TSLINT_ENABLE_WORKSPACE_LIBRARY_EXECUTION": "true",
+    "USERDOMAIN": "LAPTOP-17DSKN5C",
+    "USERDOMAIN_ROAMINGPROFILE": "LAPTOP-17DSKN5C",
+    "USERNAME": "Frank D",
+    "USERPROFILE": "C:\\Users\\Frank D",
+    "windir": "C:\\windows"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\windows\\SYSTEM32\\ntdll.dll",
+    "C:\\windows\\System32\\KERNEL32.DLL",
+    "C:\\windows\\System32\\KERNELBASE.dll",
+    "C:\\windows\\System32\\WS2_32.dll",
+    "C:\\windows\\System32\\RPCRT4.dll",
+    "C:\\windows\\System32\\ADVAPI32.dll",
+    "C:\\windows\\System32\\msvcrt.dll",
+    "C:\\windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\windows\\System32\\sechost.dll",
+    "C:\\windows\\System32\\USER32.dll",
+    "C:\\windows\\System32\\win32u.dll",
+    "C:\\windows\\System32\\GDI32.dll",
+    "C:\\windows\\System32\\ucrtbase.dll",
+    "C:\\windows\\System32\\gdi32full.dll",
+    "C:\\windows\\System32\\msvcp_win.dll",
+    "C:\\windows\\System32\\PSAPI.DLL",
+    "C:\\windows\\System32\\CRYPT32.dll",
+    "C:\\windows\\System32\\MSASN1.dll",
+    "C:\\windows\\System32\\bcrypt.dll",
+    "C:\\windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\windows\\SYSTEM32\\USERENV.dll",
+    "C:\\windows\\System32\\profapi.dll",
+    "C:\\windows\\SYSTEM32\\WINMM.dll",
+    "C:\\windows\\SYSTEM32\\WINMMBASE.dll",
+    "C:\\windows\\System32\\cfgmgr32.dll",
+    "C:\\windows\\System32\\IMM32.DLL",
+    "C:\\windows\\System32\\powrprof.dll",
+    "C:\\windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\windows\\System32\\bcryptPrimitives.dll",
+    "C:\\windows\\system32\\uxtheme.dll",
+    "C:\\windows\\System32\\combase.dll",
+    "C:\\windows\\system32\\mswsock.dll",
+    "C:\\windows\\System32\\kernel.appcore.dll",
+    "C:\\windows\\System32\\NSI.dll"
+  ]
+}

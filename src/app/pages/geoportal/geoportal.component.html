@@ -1,0 +1,50 @@
+<!-- Menú -->
+<app-geoportal-header></app-geoportal-header>
+
+<!-- Mapa -->
+<div id="map"></div>
+
+<!-- Información de la zona seleccionada -->
+<div id="info" *ngIf="getInfo()!= null && getIsInfo()">
+  <mat-card>
+    <button id="closeInfo" color="primary" mat-icon-button aria-label="Close icon" (click)="hideInfo()">
+        <mat-icon  svgIcon="close"></mat-icon>
+    </button>
+    <br>
+    <mat-card-header>
+      <mat-card-title >Indicadores que se estudian en la zona {{getInfo().nombre}}:</mat-card-title>
+    </mat-card-header>
+
+    <ol type="I">
+      <li *ngFor="let indicador of getInfo().indicadores"><h4>{{indicador.nombre}}. De este indicador se están estudiando los siguientes parámetros:</h4>
+          <ol >
+            <div *ngFor="let p of getInfo().parametros">
+              <li *ngIf="indicador.id == p.indicador.id">
+                {{p.nombre}} <p *ngIf="!p.is_active">(Este parámetro no se está estudiando en esta zona en estos momentos)</p>
+                <div *ngIf="p.ultimaMedicion.fecha!=null && p.ultimaMedicion.valor!=null">
+                  <p>Ultima Medicion: </p>
+                    <p>Fecha: {{p.ultimaMedicion.fecha|date:'d/M/y'}}, {{p.ultimaMedicion.fecha|date:'shortTime'}}</p>
+                    <p>Valor: {{ p.ultimaMedicion.valor}} {{p.unidad_medida.nombre}}</p>
+                </div>
+                <div *ngIf="p.ultimaMedicion.fecha==null && p.ultimaMedicion.valor==null">
+                  <p>En la zona seleccionada no se han realizado medciones a este parámetro </p>
+                </div>
+                <mat-action-row>
+                  <button mat-button color="primary" (click)="showMedicionForm(p, getInfo())" *ngIf="p.is_active">Nueva Medición</button>
+                  <button *ngIf="p.ultimaMedicion.fecha!=null && p.ultimaMedicion.valor!=null" mat-button color="accent" (click)="onShowMediciones(getInfo().id, p.id)">Historial de Mediciones</button>
+                </mat-action-row>
+              </li>
+            </div>
+          </ol>
+      </li>
+    </ol>
+    <mat-action-row>
+        <button id="editar" mat-raised-button color="primary" [routerLink]="['/geoportal/zonas/editar/',getInfo().id]">
+          <i class="fa fa-edit" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>Editar Zona
+        </button>
+        <button id="eliminar" mat-raised-button color="warn" *ngIf="isDispensable(getInfo())" (click)="onDeleteZona(getInfo().id)">
+          <i class="fa fa-trash-alt" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>Eliminar Zona
+        </button>
+    </mat-action-row>
+  </mat-card>
+</div>

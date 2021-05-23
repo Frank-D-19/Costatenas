@@ -1,0 +1,27 @@
+.container-fluid {
+  height: 83vh;
+  width: 100%;
+}
+
+:host{
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  width: 97%;
+}
+.floating-box{
+  width: auto;
+  display: inline-block;
+}
+mat-form-field{
+  width: 80%;
+  margin-left: 80px;
+}
+
+mat-card{
+  width: 97%;
+}
+
+button{
+  margin: 20px;
+}

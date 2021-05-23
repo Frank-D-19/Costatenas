@@ -1,0 +1,91 @@
+:host{
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  width: 95%;
+}
+#mapForm{
+  width: 90%;
+  border-radius:5px;
+  height: 300px;
+  margin-left: 5%;
+}
+
+mat-form-field{
+  width: 80%;
+  margin-left: 5%;
+}
+
+.form{
+  width: 100%;
+}
+
+mat-error{
+  margin-top: -10px;
+  margin-left: 5%;  
+  margin-bottom: 2%;
+}
+.map-error{
+  margin-top: 10px;
+}
+.map-label{
+  margin-left: 5%;
+}
+
+.parametros{
+  margin-left: 5%;
+  width: 45%;
+  vertical-align: top;
+}
+
+.parametrosSeleccionados{
+  margin-left: 5%;
+  width: 45%;
+  vertical-align: top
+}
+
+table{
+  width: 100%;
+}
+table, th, th{
+  border: 0px;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  background-color: #3f51b5;
+  color: white;
+  border-bottom-color: 1px solid white;
+  
+}
+caption{
+  width: 100%;
+  text-align: justify;
+}
+th, td {
+  width: 50%;
+  padding: 10px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #eee;
+}
+table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+button{
+  margin: 20px;
+}
+
+.floating-box{
+  display: inline-block;
+}
+
+.seleccionar-indicador{
+  width: 50%;
+}
+input[type="file"]{
+  visibility: hidden;
+}

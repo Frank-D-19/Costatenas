@@ -1,0 +1,24 @@
+@import 'src/assets/styles/variable.scss';
+@import 'src/assets/styles/sidebar.scss';
+@import 'src/assets/styles/header.scss';
+@import 'src/assets/styles/responsive.scss';
+@import 'src/assets/styles/app.scss';
+
+button {
+    text-align: left;
+    padding-top: 6px;
+    padding-bottom:6px ;
+    width: 100%; 
+    transition: all 0.4s;
+    border-radius: 0px;
+    opacity: 0.5;
+}
+ button:hover {
+    background-color:rgb(156, 204, 101);
+    color:#ffff;
+    opacity: 1;
+ }
+ .iconos{
+     margin-right: 5px;
+     margin-top: -4px;
+ }

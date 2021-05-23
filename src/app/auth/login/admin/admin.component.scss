@@ -1,0 +1,128 @@
+
+@import 'src/assets/styles/variable.scss';
+@import 'src/assets/styles/responsive.scss';
+@import 'src/assets/styles/app.scss';
+
+.btn-close {
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    padding:10px;
+    position: absolute;
+    right: 7px;
+    top: 0;
+  }
+  .btn-close:hover {
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .modale:before {
+    content: "";
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+  }
+  .opened:before {
+    display: block;
+  }
+  .opened .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    top: 2%;
+    left: 32%;
+    position: absolute;
+  }
+  .modal-dialog {
+    background: #fefefe;
+    border: #333333 solid 0px;
+    border-radius: 5px;
+    margin-left: -200px;
+    padding-bottom: 10px;
+    text-align:center;
+    position: fixed;
+    left: 27%;
+    top: -100%;
+    z-index: 11;
+    width: 75%;
+    box-shadow:0 5px 10px rgba(0,0,0,0.3);
+    -webkit-transform: translate(0, -500%);
+    -ms-transform: translate(0, -500%);
+    transform: translate(0, -500%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+  }
+  .modal-body {
+    padding: 20px;
+  }
+  .modal-body input{
+    width:200px;
+    padding:8px;
+    border:1px solid #ddd;
+    color:#888;
+    outline:0;
+    font-size:14px;
+    font-weight:bold
+  }
+  .modal-header,
+  .modal-footer {
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius:5px 5px 0 0;
+    text-align: left;
+    background-color: #1e88e5;
+  }
+  .modal-header {
+    border-bottom: #eeeeee solid 1px;
+  }
+  .modal-header h5 {
+    color: #ffff;
+
+  }
+#adduser{
+  float: right;
+  font-size: 16px;
+  background-color:#1e88e5 ;
+  color:white;
+}
+#adduser:hover{
+color:#1e88e5 ;
+background-color:white;
+border:1px solid #1e88e5
+}
+  h3{
+    float: left;
+    position: absolute;
+    margin-top: 0;
+  }
+
+  #filtrar{
+  color:#1e88e5 ;
+  background-color:white;
+  margin-left: 25px;
+  }
+ table{
+  margin-top: 80px;
+  width: 100%;
+  text-align: left
+ }
+
+ tr{
+   width: 25%;
+   color: #333333;
+   border-bottom: 1px solid  rgb(216, 215, 215)
+ }
+ th{
+  padding: 10px;
+ }
+ #cabecera{
+   color: white;
+   background-color: #333333
+ }

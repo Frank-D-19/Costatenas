@@ -1,0 +1,115 @@
+<!--------------------------------------------Formularios------------------------------------------------------------------------------>
+<div class="modale-delete" aria-hidden="true">
+                <div class="modal-dialog-delete">
+                    <div class="modal-header-delete">
+                        <a  class="btn-close" aria-hidden="true" (click)="deleteclose()">&times;</a>
+                    </div>
+                       <h4><mat-icon class="iconos"></mat-icon>El proyecto será eliminado de forma permanente</h4>
+                    <button mat-raised-button matTooltip="Guardar Indicador." color="primary" style="margin-right: 10px;">Aceptar</button>
+                    <button mat-raised-button matTooltip="Cancelar." color="warn">Cancelar</button>
+ </div>
+
+ <form [formGroup]="formulario" (sumbit)="onSumbit(formulario)" class="modale" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-header">
+                        <a  class="btn-close" aria-hidden="true" (click)="close()">&times;</a>
+                      </div>
+                        <div style="width: 95%; margin-left: 20px;">
+                            <mat-form-field style="width: 49%; float: left; position: inherit; margin-right: 10px; ">
+                                    <input formControlName="denominacion" matInput  placeholder="Denominación">
+                            </mat-form-field>
+                             <mat-form-field style="width: 49%; float: left; position: inherit;">
+                                    <input formControlName="medicion"  matInput  placeholder="Jefe del Proyecto">
+                           </mat-form-field>
+                    </div> 
+                    <div style="width: 95%; margin-left: 20px;">
+                      <mat-form-field >
+                              <textarea formControlName="descripcion" matInput placeholder="Descripción"></textarea>
+                      </mat-form-field>
+                       <mat-form-field>
+                              <textarea matInput placeholder="Objetivos"></textarea>
+                     </mat-form-field>
+                   </div>
+                    <button type="submit" mat-raised-button (click)="onSumbit()" matTooltip="Guardar Indicador." color="primary" style="margin-right: 10px;">Aceptar</button>
+                    <button mat-raised-button matTooltip="Cancelar." color="warn">Cancelar</button>   
+      </div>
+    </form>
+<!------------------------------------------------------------------------------------------------------------------------------>
+<div fxLayout="row" fxLayoutWrap="wrap" style="height:550px">
+        <!-- column -->    
+        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <button mat-button (click)="open()" matTooltip="Adicionar Proyecto." color="primary"><mat-icon class="iconos">add</mat-icon>Adicionar</button>
+                <button mat-button matTooltip="Modificar Proyecto  Seleccionado." color="primary"><mat-icon class="iconos">update</mat-icon>Modificar</button>
+                <button mat-button [matMenuTriggerFor]="reportes" matTooltip="Ver Reportes e Imprimir." color="primary"> <mat-icon  class="iconos">print</mat-icon>Reportes</button>
+                <mat-menu #reportes="matMenu" matTooltip="Ver Reportes e Imprimir." class="mymegamenu">
+                    <button mat-menu-item>Reporte 1 </button>
+                    <button mat-menu-item>Reporte 2 </button>
+                    <button mat-menu-item>Reporte 3 </button>
+                </mat-menu>    
+                <button mat-button (click)="delete()" matTooltip="Eliminar Proyecto  Seleccionado." color="warn"><mat-icon class="iconos">delete</mat-icon>Eliminar</button>
+                <div class="search">
+                        <mat-form-field style="width: 80%; float: left; position: inherit;">
+                             <input matInput placeholder="Buscar...">
+                       </mat-form-field>
+                          <button mat-icon-button color="primary" style="margin-top: 16px;"><mat-icon class="iconos">search</mat-icon></button>
+                   </div>
+            </mat-card-content>
+            <mat-tab-group>
+                    <mat-tab label="ASOCIADOS A PROGRAMAS">
+                            <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                      <mat-panel-title>
+                                       <b>Nombre</b>: Ejemplo #1
+                                      </mat-panel-title>
+                                      <mat-panel-title>
+                                            <b>Estado</b>:<span style="color:green; margin-left: 5px;">Activo</span>
+                                        </mat-panel-title>
+                                        <mat-panel-title>
+                                                <b>Duración</b>: 2018-2020
+                                         </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                        <button mat-raised-button color="primary" matTooltip="Localizar indicador en el mapa." style="float: right;"><mat-icon class="iconos">note_add</mat-icon>Ver Más ...</button>
+                            </mat-expansion-panel> 
+                            <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                      <mat-panel-title>
+                                       <b>Nombre</b>: Ejemplo #2
+                                      </mat-panel-title>
+                                      <mat-panel-title>
+                                            <b>Estado</b>:<span style="color:red; margin-left: 5px;">Cancelado</span>
+                                        </mat-panel-title>
+                                        <mat-panel-title>
+                                                <b>Duración</b>: 2019-2020
+                                         </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                        <button mat-raised-button color="primary" matTooltip="Localizar indicador en el mapa." style="float: right;"><mat-icon class="iconos">note_add</mat-icon>Ver Más ...</button>
+                            </mat-expansion-panel>      
+                    </mat-tab>    
+                    <mat-tab label="NO ASOCIADOS A PROGRAMAS"> 
+                                    <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                              <mat-panel-title>
+                                               <b>Nombre</b>: Ejemplo #3
+                                              </mat-panel-title>
+                                              <mat-panel-title>
+                                                    <b>Estado</b>:<span style="color:goldenrod; margin-left: 5px;">Pospuesto</span>
+                                                </mat-panel-title>
+                                                <mat-panel-title>
+                                                        <b>Duración</b>: 2019-2021
+                                                 </mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                                <button mat-raised-button color="primary" matTooltip="Localizar indicador en el mapa." style="float: right;"><mat-icon class="iconos">note_add</mat-icon>Ver Más ...</button>
+                                    </mat-expansion-panel> 
+                    </mat-tab>
+                    <mat-tab label="EMPRESARIALES">
+                       <span style="color: #e91e63;margin-left: 36px;margin-top: 28px;">No hay proyectos disponibles</span> 
+                    </mat-tab>
+            </mat-tab-group>
+          </mat-card>
+           
+        </div>
+        </div>
+        <!-- column -->     
+

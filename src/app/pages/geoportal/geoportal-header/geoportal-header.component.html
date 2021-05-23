@@ -1,0 +1,21 @@
+<mat-toolbar color="accent">
+  <button mat-button [matMenuTriggerFor]="capasBase"><i class="fa fa-layer-group" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i> Capas Base</button>
+  <mat-menu #capasBase="matMenu">
+    <button mat-menu-item [routerLink]="['/geoportal/capasBase/crear']">Nueva capa base</button>
+    <button mat-menu-item [routerLink]="['/geoportal/capasBase']">Lista de capas base</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="zonas"><i class="fa fa-map-marked-alt" style="margin-top:-4px;margin-right: 5px; width: 16px; height: 16px"></i> Zonas</button>
+  <mat-menu #zonas="matMenu">
+    <button mat-menu-item [routerLink]="['/geoportal/zonas/crear']">Nueva zona</button>
+  </mat-menu>
+
+  <button mat-button [routerLink]="['/geoportal']"><i class="fa fa-map-marker-alt" style="margin-top:-4px;margin-right: 5px; width: 16px; height: 16px"></i> Mapa</button>
+
+  <button mat-button [matMenuTriggerFor]="crearCapa"><i class="fa fa-map-marked-alt" style="margin-top:-4px;margin-right: 5px; width: 16px; height: 16px"></i> Crear capa</button>
+  <mat-menu #crearCapa="matMenu">
+    <button mat-menu-item [routerLink]="['/geoportal/crearCapa/crearEspacioDeTrabajo']">Crear espacio de trabajo</button>
+    <button mat-menu-item [routerLink]="['/geoportal/crearCapa']">Añadir capa</button>
+    <button mat-menu-item [routerLink]="['']">Crear grupo de capas</button>
+  </mat-menu>
+</mat-toolbar>

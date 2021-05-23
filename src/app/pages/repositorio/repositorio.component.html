@@ -1,0 +1,74 @@
+<mat-toolbar style=" width: 97%; background-color: #1e88e5;color: white;margin-top: 1rem;margin-left: 16px;border-radius: 5px">
+  <button mat-button [routerLink]="['/repositorio']" routerLinkActive="router-link-active"><i class="fa fa-list" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Listar Documentos</button>
+  <button mat-button (click)="open()" routerLinkActive="router-link-active"><i class="fa fa-plus-circle" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Adicionar Documento</button>
+</mat-toolbar>
+<div fxLayout="row" fxLayoutWrap="wrap" style="height:550px; width: 99.5%;">
+        <!-- column -->    
+        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+          
+            <div style="width: 95%; margin-left: 25px;">
+            <mat-form-field style="width: 46%; float: left; position: inherit;">
+                    <input  matInput placeholder="Nombres">
+            </mat-form-field>
+             <mat-form-field  class="" style="width: 46%; float: left; position: inherit;">
+              <mat-select
+              id="select"
+              matInput
+              type="text"
+              placeholder="Tipo de Documento">
+                <mat-option *ngFor="let tipo of tipo_documento" [value]= "tipo"  >
+                  {{tipo.denominacion}}
+                </mat-option>
+            </mat-select>   
+           </mat-form-field>
+           <button mat-icon-button color="primary" style="margin-top: 16px;"><i class="fa fa-search" style="width: 20px; height: 20px"></i></button>
+           </div>
+           <br>
+           
+           <mat-expansion-panel  *ngFor="let tipo of tipo_documento">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                  <b>{{tipo.denominacion}}</b>             
+              </mat-panel-title>              
+            </mat-expansion-panel-header> 
+            <div  *ngFor='let documento of documentos'>
+              <p *ngIf="tipo.id==documento.idtipo">
+                  {{documento.denominacion}}
+              </p>
+            </div>       
+              </mat-expansion-panel> 
+          </mat-card>
+        </div>
+        </div>
+<!----------------------------------------Formulario------------------------------------------------------>    
+ <form [formGroup]="formulario"  class="modale" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <a  class="btn-close" aria-hidden="true" (click)="close()">&times;</a>
+          </div>
+            <div style="width: 95%; margin-left: 20px;">
+                <mat-form-field style="width: 100%; float: left; position: inherit; margin-right: 10px;margin-bottom:10px ">
+                        <input formControlName="denominacion" matInput  placeholder="Denominación">
+                        <mat-error *ngIf="formulario.get('denominacion').invalid">Por favor ingrese correctamente la importancia del nuevo indicador</mat-error>
+                </mat-form-field>
+                 <mat-form-field style="width: 100%; float: left; position: inherit;margin-bottom:10px">
+                    <mat-select
+                    matInput
+                    type="text"
+                    formControlName="tipo"
+                    placeholder="Tipo de Documento">
+                
+                      <mat-option *ngFor="let tipo of tipo_documento" [value]= "tipo">
+                        {{tipo.denominacion}}
+                      </mat-option>                  
+                  </mat-select>   
+               </mat-form-field>
+               <div *ngIf="formulario.controls.tipo.errors && (formulario.controls.tipo.dirty || formulario.controls.tipo.touched || isSubmited)">
+                  <mat-error class="font" *ngIf="form.controls.parametros.errors.required">Por favor seleccione un parametro como mínimo</mat-error>
+                </div>
+        </div> 
+        <button type="submit" mat-raised-button  matTooltip="Guardar Indicador." color="primary" style="margin-right: 10px;">Aceptar</button>
+        <button mat-raised-button matTooltip="Cancelar." color="warn">Cancelar</button>   
+</div>
+</form>

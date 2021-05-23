@@ -1,0 +1,53 @@
+<button id="close" color="primary" mat-icon-button aria-label="Close icon" (click)="closeDialog()">
+  <mat-icon  svgIcon="close"></mat-icon>
+</button>
+<br>
+<h1 mat-dialog-title>Nuevo Parametro</h1>
+<hr>
+<div mat-dialog-content>
+  <form [formGroup]="form" (submit)="onSaveParametro()">
+    <mat-form-field>
+        <input
+        matInput
+        type="text"
+        formControlName="nombre"
+        placeholder="Nombre *">
+    </mat-form-field>
+    <div *ngIf="form.controls.nombre.errors && (form.controls.nombre.dirty || form.controls.nombre.touched  || isSubmited)">
+      <mat-error class="font" *ngIf="form.controls.nombre.errors.required">Por favor ingrese un nombre para el nuevo parametro</mat-error>
+      <mat-error class="font" *ngIf="form.controls.nombre.errors.minlength">El nombre debe tener 2 letras como mínimo</mat-error>
+    </div>
+
+    <mat-form-field>
+      <mat-select
+        formControlName="unidad_medida"
+        placeholder="Unidad de Medida *">
+        <mat-option *ngFor="let unidad_medida of unidades_medida" [value]="unidad_medida">
+          {{unidad_medida.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="form.controls.unidad_medida.errors && (form.controls.unidad_medida.dirty || form.controls.unidad_medida.touched  || isSubmited)">
+      <mat-error class="font" *ngIf="form.controls.unidad_medida.errors.required">Por favor seleccione una unidad de medida para el nuevo parámetro</mat-error>
+    </div>
+
+    <mat-form-field class="floating-box" >
+      <mat-select
+        formControlName="zonas"
+        multiple
+        placeholder="Zonas *">
+        <mat-option *ngFor="let zona of zonas" [value]="zona">
+          {{zona.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <form  class="floating-box">
+      <button mat-button color="primary" (click)="crearNuevaZona()">Nueva Zona</button>
+    </form>
+
+    <button mat-raised-button color="primary" type="submit" >
+        <i class="fa fa-save" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>Guardar
+    </button>
+  </form>
+</div>

@@ -1,0 +1,53 @@
+@import 'src/assets/styles/variable.scss';
+@import 'src/assets/styles/responsive.scss';
+@import 'src/assets/styles/app.scss';
+@import '~ngx-toastr/toastr';
+@import '~ngx-toastr/toastr.css';
+
+.container-fluid {
+  height: 83vh;
+  width: 100%;
+}
+
+:host{
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  width: 95%;
+}
+mat-card,.mat-card{
+  margin-left: 0;
+  margin-right: 0;
+}
+table{
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+mat-paginator{
+  margin-right: 5%;
+}
+ng-container{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+th{
+  font-size:14px;
+}
+.buscar{
+  font-size:14px;
+  float: right;
+  width: 40%;
+  margin-right: 5%;
+  margin-top: -15px;
+}
+.floating-box{
+  display: inline-block;
+}
+highcharts-chart{
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+  height: 400px; 
+  display: block;
+}

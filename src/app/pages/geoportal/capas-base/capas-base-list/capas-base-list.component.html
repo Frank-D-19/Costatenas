@@ -1,0 +1,40 @@
+<!-- Menú -->
+<app-geoportal-header></app-geoportal-header>
+
+<div class="container-fluid">
+    <div>
+      <h3 class="floating-box lista">Lista de Capas Base</h3>
+      <mat-form-field class="buscar floating-box">
+        <input matInput (keyup)="buscar($event.target.value)" placeholder="Buscar" >
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="nombre">
+          <th style="text-align:left;" mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td style="margin-right: 25px;" mat-cell *matCellDef="let row">{{row.nombre}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="id">
+            <th style="width: 27%;text-align:left;" mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td style="width: 27%;" mat-cell *matCellDef="let row">
+              <div>
+                <button mat-button matTooltip="Editar" color="accent" [routerLink]="[ '/geoportal/capasBase/editar/',row.id ]">
+                  <i class="fa fa-edit" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>
+                </button>
+                <button mat-button matTooltip="Eliminar" color="warn" (click)="onDelete(row.id)">
+                    <i class="fa fa-trash-alt" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>
+                </button>
+              </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 50]"></mat-paginator>
+    </div>
+  </div>

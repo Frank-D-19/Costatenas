@@ -1,0 +1,133 @@
+/*
+Template Name: Material Pro Admin
+Author: Themedesigner
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+// Variables
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+$bodyfont: 'Poppins', sans-serif;
+$headingfont: 'Poppins', sans-serif;
+
+@import '~@angular/material/theming';
+
+/*Material Theme Colors*/
+
+$primary: mat-palette($mat-blue, 600);
+$accent: mat-palette($mat-indigo, 500);
+$warn: mat-palette($mat-pink, 500);
+$theme: mat-light-theme($primary, $accent, $warn);
+$background: map-get($theme, background);
+$foreground: map-get($theme, foreground);
+
+@include mat-core();
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Poppins, sans-serif'
+);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+// Default Theme
+@include angular-material-theme($theme);
+
+// Dark Theme
+
+/*Theme Colors*/
+
+$topbar: #2196f3;
+$sidebar: #fff;
+$sidebar-white: #e5edef;
+$sidebar-alt: #f2f6f8;
+$bodycolor: #eef5f9;
+$headingtext: #455a64;
+$bodytext: #67757c;
+$sidebar-text: #607d8b;
+$sidebar-icons: #99abb4;
+
+$font-16: 16px;
+
+$light-text: #a6b7bf;
+$themecolor: #1e88e5;
+$themecolor-alt: #26c6da;
+$themecolor-dark: #028ee1;
+
+/*bootstrap Color*/
+$danger: #fc4b6c;
+$success: #26c6da;
+$warning: #ffb22b;
+$primary: #7460ee;
+$info: #1e88e5;
+$inverse: #2f3d4a;
+$muted: #99abb4;
+$dark: #263238;
+$light: #f2f4f8;
+$extra-light: #ebf3f5;
+$secondary: #727b84;
+
+/*Light colors*/
+$light-danger: #f9e7eb;
+$light-success: #e8fdf8;
+$light-warning: #fff8ec;
+$light-primary: #f1effd;
+$light-info: #e3f3fd;
+$light-inverse: #f6f6f6;
+$light-megna: #e0f2f4;
+
+$danger-dark: #e6294b;
+$success-dark: #1eacbe;
+$warning-dark: #e9ab2e;
+$primary-dark: #6352ce;
+$info-dark: #028ee1;
+$red-dark: #d61f1f;
+$inverse-dark: #232a37;
+$dark-transparent: rgba(0, 0, 0, 0.05);
+
+/*Normal Color*/
+$white: #ffffff;
+$red: #fb3a3a;
+$yellow: #a0aec4;
+$purple: #7460ee;
+$blue: #02bec9;
+$megna: #00897b;
+
+/*Extra Variable*/
+$rgt: right;
+$lft: left;
+$border: rgba(120, 130, 140, 0.13);
+$table-border: #f3f1f1;
+$card-brd: #d7dfe3;
+$dark-text: #848a96;
+$radius: 4px;
+$form-brd: #d9d9d9;
+
+
+$gray-base:              #000 !default;
+$gray-light:             #999999 !default; // #999999
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // 
+$font-size-h1:                 3.3125rem;
+$font-size-h2:                 2.25rem !default;
+$font-size-h3:                 1.5625rem;
+$font-size-h4:                 1.125rem !default;
+$font-size-h5:                 1.0625rem !default;
+$font-size-h6:                 0.75rem !default;
+$font-paragraph:               14px !default;
+$font-size-navbar:             16px !default;
+$font-size-small:              12px !default;
+$bmd-inverse-light: rgba(#fff, 0.84) !default;
+$bmd-inverse-lighter: rgba(#fff, 0.54) !default;
+
+
+$font-weight-light: 300 !default;
+$font-weight-default: 400 !default;
+$font-weight-bold:    500 !default;
+$font-weight-extra-bold: 700 !default;
+
+$table-bg-accent: rgba(#000, .03);
+$table-border-color: rgba(#000, .06);
+$table-bg-hover: rgba(#000, .02); // Grey 100 (on white background)
+
+$bmd-table-header-font-size: .95rem;
+$bmd-table-border-color-inverse: rgba(#fff, .06);

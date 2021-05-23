@@ -1,0 +1,60 @@
+<mat-toolbar >
+
+  <button mat-button [routerLink]="['/indicadores']" routerLinkActive="router-link-active"><i class="fa fa-list" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Listar Indicadores</button>
+  <button mat-button [routerLink]="['/indicadores/crear']" routerLinkActive="router-link-active"><i class="fa fa-plus-circle" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Adicionar Indicador</button>
+
+  <button mat-button [routerLink]="['/parametros']"><i class="fa fa-chart-bar" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Parámetros</button>
+
+<!--  <button mat-button [matMenuTriggerFor]="parametros"><i class="fa fa-chart-bar" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Parámetros</button>
+  <mat-menu #parametros="matMenu">
+    <button mat-menu-item [routerLink]="['/parametros']" routerLinkActive="router-link-active">Listar Parametros</button>
+    <button mat-menu-item [routerLink]="['/parametros/crear']" routerLinkActive="router-link-active">Adicionar Parametro</button>
+  </mat-menu>-->
+  <button mat-button   (click)="generarPDF()"><i class="fa fa-file-alt" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Reporte</button>
+  <button mat-button   (click)="click()" ><i class="fa fa-calendar-alt" style="margin-top:-4px;margin-right: 8px; width: 15px; height: 15px"></i>Prediccón</button>
+</mat-toolbar>
+
+<div class="container-fluid">
+  <mat-card id="body"*ngIf="parametro!= undefined">
+    <mat-card-header>
+      <mat-card-title><h2>{{parametro.nombre}}</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>Unidad de medida: {{parametro.unidad_medida.nombre}}</h3>
+      <h3>Indicador: {{parametro.indicador.nombre}}</h3>
+      <h3>Creado: {{parametro.created_at}}</h3>
+      <h3>Última Actualización: {{parametro.updated_at}}</h3>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <div>
+      <h3>Elija una zona para ver el comportamiento del parametro en la misma</h3>
+      <form [formGroup]="form" (submit)="Mostrar()">
+        <mat-form-field class="floating-box" >
+          <mat-select
+            formControlName="zonas"
+            placeholder="Zonas *">
+            <mat-option *ngFor="let zona of zonas" [value]="zona">
+              {{zona.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Mostrar</button>
+      </form>
+
+    </div>
+    <div>
+      <highcharts-chart *ngIf="medComponent.mediciones.length > 0"
+                        [Highcharts]="medComponent.highcharts"
+                        [options]="medComponent.chartOptions">
+
+      </highcharts-chart>
+      <p class="mat-body-1" *ngIf="notMed==true && medComponent.mediciones.length <= 0" >No existen mediciones de este parametro en esta zona
+    </p>
+    </div>
+
+  </mat-card>
+</div>
+
+

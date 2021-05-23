@@ -1,0 +1,108 @@
+<app-indicadores-header></app-indicadores-header>
+<div class="container-fluid" >
+  <mat-card>
+    <mat-card-header>
+        <mat-card-title *ngIf="modo=='crear'"></mat-card-title>
+        <mat-card-title *ngIf="modo=='editar'"></mat-card-title>
+    </mat-card-header>
+
+    <form [formGroup]="form" (submit)="onSaveIndicador()">
+        <mat-form-field>
+            <input
+            matInput
+            type="text"
+            formControlName="nombre"
+            placeholder="Nombre del Indicador">
+            <mat-error *ngIf="form.get('nombre').invalid">Por favor ingrese correctamente un nombre para el nuevo indicador</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input
+            matInput
+            type="text"
+            formControlName="definicion"
+            placeholder="Definicion del Indicador">
+            <mat-error *ngIf="form.get('definicion').invalid">Por favor ingrese correctamente una definicion para el nuevo indicador</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input
+            matInput
+            type="text"
+            formControlName="importancia"
+            placeholder="Importancia del Indicador">
+            <mat-error *ngIf="form.get('importancia').invalid">Por favor ingrese correctamente la importancia del nuevo indicador</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input
+            matInput
+            type="text"
+            formControlName="fuente"
+            placeholder="Fuente del Indicador">
+            <mat-error *ngIf="form.get('fuente').invalid">Por favor ingrese correctamente la fuente del nuevo indicador</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input
+            matInput
+            type="text"
+            formControlName="colaboracion"
+            placeholder="Colaboracion del Indicador">
+            <mat-error *ngIf="form.get('colaboracion').invalid">Por favor ingrese correctamente la colaboración del nuevo indicador</mat-error>
+        </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="valoracion"
+          placeholder="Valoración del Indicador">
+        <mat-error *ngIf="form.get('valoracion').invalid">Por favor ingrese correctamente la valoración del nuevo indicador</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="procedimiento"
+          placeholder="Procedimiento del Indicador">
+        <mat-error *ngIf="form.get('procedimiento').invalid">Por favor ingrese correctamente el procedimiento del nuevo indicador</mat-error>
+      </mat-form-field>
+
+
+        <mat-form-field class="floating-box">
+          <mat-select
+            formControlName="parametros"
+            multiple
+            placeholder="Parametros *">
+            <mat-option *ngFor="let parametro of parametros" [value]="parametro">
+              {{parametro.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <form  class="floating-box">
+          <button mat-button color="primary" (click)="showParametroForm()">Nuevo Parametro</button>
+        </form>
+
+      <div *ngIf="form.controls.parametros.errors && (form.controls.parametros.dirty || form.controls.parametros.touched || isSubmited)">
+        <mat-error class="font" *ngIf="form.controls.parametros.errors.required">Por favor seleccione un parametro como mínimo</mat-error>
+      </div>
+
+        <mat-form-field>
+            <input
+            matInput
+            type="color"
+            formControlName="color"
+            placeholder="Color del indicador en el mapa">
+            <mat-error *ngIf="form.get('color').invalid">Por favor ingrese correctamente la definición del nuevo indicador</mat-error>
+        </mat-form-field>
+
+        <div>
+          <button mat-raised-button color="primary" type="submit" *ngIf="modo=='crear'">Guardar Indicador</button>
+          <button mat-raised-button color="primary" type="submit" *ngIf="modo=='editar'">Actualizar Indicador</button>
+        </div>
+      </form>
+  </mat-card>
+</div>

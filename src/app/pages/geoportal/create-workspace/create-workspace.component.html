@@ -1,0 +1,22 @@
+<app-geoportal-header></app-geoportal-header>
+<div class="container-fluid" >
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title></mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" (submit)="onSaveWorkspace()">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="nombre"
+          placeholder="Nombre del Espacio de Trabajo">
+        <mat-error *ngIf="form.get('nombre').invalid">Por favor ingrese correctamente un nombre para el nuevo espacio de trabajo</mat-error>
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button color="primary" type="submit" >Guardar</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

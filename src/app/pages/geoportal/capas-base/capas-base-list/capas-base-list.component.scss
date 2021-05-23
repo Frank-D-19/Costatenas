@@ -1,0 +1,39 @@
+@import 'src/assets/styles/variable.scss';
+@import 'src/assets/styles/responsive.scss';
+@import 'src/assets/styles/app.scss';
+@import '~ngx-toastr/toastr';
+@import '~ngx-toastr/toastr.css';
+
+.container-fluid {
+  height: 83vh;
+  width: 100%;
+}
+
+:host{
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  width: 90%;
+}
+table{
+  width: 100%;
+}
+ng-container{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+th{
+  font-size:14px;
+}
+.buscar{
+  font-size:14px;
+  float: right;
+  width: 40%;
+  margin-top: 10px;
+}
+.floating-box{
+  display: inline-block;
+}
+.lista{
+  margin-top: 5px;
+}

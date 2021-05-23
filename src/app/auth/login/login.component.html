@@ -1,0 +1,38 @@
+<body>
+<div class="login-card">
+        <div class="login-card-content">
+          <div class="header">
+            <div class="logo">
+             <img src="../../../assets/images/LOGO.png" width="160" height="100">
+            </div>
+            <h2>OBSAM<span class="highlight">Costatenas</span></h2>
+            <!--<h3>Cultura e Investigación</h3>-->
+          </div>
+          
+          <form class="form" id="login-form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+            <div class="form-field username">
+              <div class="icon">
+                <i class="fa fa-user" style="width: 19px; height: 19px"></i>
+              </div>
+              <input type="text" formControlName="username" placeholder="Usuario">
+            </div>
+            <div class="form-field password">
+              <div class="icon">
+                <i class="fa fa-user-lock" style="width: 19px; height: 19px"></i>
+              </div>
+              <input type="password" formControlName="password" placeholder="Contraseña">
+            </div>
+      
+            <button  type="submit"  form="login-form">
+              <i class="fa fa-sign-in-alt" style="margin-right: 9px"></i>Entrar
+            </button>
+            <div>
+              No estás registrado? <a href="" >Registrarme Ahora</a>
+            </div>
+          </form>
+        </div>
+        <div class="login-card-footer">
+          <a href="">Olvidé la contraseña</a>
+        </div>
+      </div>
+    </body>

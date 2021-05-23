@@ -1,0 +1,28 @@
+<app-geoportal-header></app-geoportal-header>
+<div class="container-fluid" >
+  <mat-card>
+    <form [formGroup]="form" (submit)="onSaveCapa()">
+      <mat-card>
+        <mat-form-field>
+          <mat-select
+            formControlName="workspace"
+            placeholder="Espacios de trabajo *">
+            <mat-option *ngFor="let workspace of workspaces" [value]="workspace">
+              {{workspace.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" type="button" (click)=onSelectWorkspace() [disabled]="selected2">Seleccionar</button>
+        </div>
+      </mat-card>
+      <div *ngIf="selected">
+        <button mat-stroked-button type="button" (click)="filePicker.click()">Seleccionar archivo</button>
+        <input type="file" #filePicker (change)="onFilePicker($event)">
+      </div>
+      <div>
+        <button mat-raised-button color="primary" type="submit" >Guardar</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

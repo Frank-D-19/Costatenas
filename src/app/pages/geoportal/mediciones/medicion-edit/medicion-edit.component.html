@@ -1,0 +1,54 @@
+<!-- Menú -->
+<app-geoportal-header></app-geoportal-header>
+
+<div class="container-fluid">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Editar Medición</mat-card-title>
+        </mat-card-header>
+
+        <form [formGroup]="form" (submit)="onEditMedicion()" *ngIf="medicion!=undefined">
+            <mat-form-field style="width: 60%" class="floating-box">
+                <input
+                matInput          
+                type="number"
+                formControlName="valor"
+                placeholder="Valor de la medición *">          
+            </mat-form-field>
+            <p class="floating-box">
+                {{medicion.parametro.unidad_medida.nombre}}
+            </p>
+            <div *ngIf="form.controls.valor.errors && (form.controls.valor.dirty || form.controls.valor.touched || isSubmited)">
+                <mat-error *ngIf="form.controls.valor.errors.required">Por favor ingrese el valor de la medición</mat-error>
+                <!-- <mat-error *ngIf="form.controls.valor.errors.pattern">Solo debe ingresar números</mat-error> -->
+            </div>
+    
+            <mat-form-field>
+                <input
+                matInput
+                type="date"                 
+                [max]="today"              
+                formControlName="fecha"
+                placeholder="Fecha de la medición *">
+            </mat-form-field>
+            <div *ngIf="form.controls.fecha.errors && (form.controls.fecha.dirty || form.controls.fecha.touched || isSubmited)">
+                <mat-error *ngIf="form.controls.fecha.errors.required">Por favor ingrese la fecha en la que se realizó la medición</mat-error>
+            </div>
+    
+            <mat-form-field>
+                <input
+                matInput
+                type="time"
+                formControlName="hora"
+                placeholder="Hora de la medición *">
+            </mat-form-field>
+            <div *ngIf="form.controls.hora.errors && (form.controls.hora.dirty || form.controls.hora.touched || isSubmited)">
+                <mat-error *ngIf="form.controls.hora.errors.required">Por favor ingrese la hora en la que se realizó la medición</mat-error>
+            </div>
+    
+            <button type="submit" mat-raised-button color="primary" >
+                <i class="fa fa-save" style="margin-top:-4px;margin-right: 4px; width: 21px; height: 21px"></i>Actualizar
+            </button>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,46 @@
+<app-indicadores-header></app-indicadores-header>
+
+<div class="container-fluid">
+  <div>
+    <mat-form-field class="buscar floating-box">
+      <input matInput (keyup)="buscar($event.target.value)" placeholder="Buscar" >
+    </mat-form-field>
+  </div>
+
+
+  <div>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="nombre">
+        <th style="text-align:left;" mat-header-cell *matHeaderCellDef mat-sort-header="">Nombre</th>
+        <td style="margin-right: 25px;" mat-cell *matCellDef="let row">{{row.nombre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="unidad_medida">
+        <th style="text-align:left;" mat-header-cell *matHeaderCellDef mat-sort-header>Unidad de medida</th>
+        <td style="margin-right: 25px;" mat-cell *matCellDef="let row">{{row.unidad_medida.nombre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="indicador">
+        <th style="text-align:left;" mat-header-cell *matHeaderCellDef mat-sort-header>Indicador</th>
+        <td style="margin-right: 25px;" mat-cell *matCellDef="let row">{{row.indicador.nombre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <th style="width: 27%;text-align:left;" mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td style="width: 27%;" mat-cell *matCellDef="let row">
+          <div>
+            <button mat-button color="primary" (click)="onShow(row.id)">VER</button>
+            <button mat-button color="accent" (click)="onEdit(row.id)">EDITAR</button>
+            <button mat-button color="warn" (click)="onDelete(row.id)">ELIMINAR</button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 50]"></mat-paginator>
+  </div>
+</div>
+
